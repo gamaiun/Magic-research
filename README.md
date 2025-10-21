@@ -342,9 +342,7 @@ If you use this RAG Assistant in your academic work, please cite:
 
 ### Maintainers
 
-- **Primary Developer**: [Your Name]
-- **Email**: [your.email@example.com]
-- **GitHub**: [Your GitHub Profile]
+- **Primary Developer**: Gamaiun
 
 ### Support
 
