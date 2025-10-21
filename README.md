@@ -14,6 +14,21 @@ Key features:
 - **Web Interface**: User-friendly FastAPI-based frontend
 - **Persistent Storage**: ChromaDB vector database for efficient document retrieval
 
+## Demo
+
+### Web Interface
+
+![RAG Assistant Web Interface](./docs/images/screenshot.png)
+
+_The web interface provides an intuitive way to query your document collection. Simply type your question and get AI-powered answers based on your academic papers._
+
+### Key Features Shown:
+
+- 🔍 **Semantic Search**: Natural language queries across your document corpus
+- 📚 **Source Attribution**: Clear references to specific documents and sections
+- 🎯 **Contextual Answers**: AI responses grounded in your actual content
+- ⚡ **Real-time Processing**: Fast response times for interactive research
+
 ## Target Audience
 
 This project is intended for:
