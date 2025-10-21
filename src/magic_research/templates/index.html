@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        color: white;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+
+      .header p {
+        font-size: 1.1em;
+        opacity: 0.9;
+      }
+
+      .stats {
+        background: #ecf0f1;
+        padding: 15px 30px;
+        border-bottom: 1px solid #bdc3c7;
+      }
+
+      .stats span {
+        color: #2c3e50;
+        font-weight: 600;
+      }
+
+      .main-content {
+        padding: 40px;
+      }
+
+      .query-form {
+        margin-bottom: 30px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #2c3e50;
+      }
+
+      .question-input {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #ecf0f1;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+        resize: vertical;
+        min-height: 60px;
+      }
+
+      .question-input:focus {
+        outline: none;
+        border-color: #3498db;
+        box-shadow: 0 0 10px rgba(52, 152, 219, 0.2);
+      }
+
+      .submit-btn {
+        background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+      }
+
+      .submit-btn:active {
+        transform: translateY(0);
+      }
+
+      .result-section {
+        margin-top: 30px;
+      }
+
+      .question-display {
+        background: #f8f9fa;
+        border-left: 4px solid #3498db;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .question-display h3 {
+        color: #2c3e50;
+        margin-bottom: 10px;
+      }
+
+      .question-text {
+        font-style: italic;
+        color: #555;
+      }
+
+      .answer-display {
+        background: #f1f8ff;
+        border: 1px solid #e1f4ff;
+        border-radius: 8px;
+        padding: 25px;
+        line-height: 1.8;
+      }
+
+      .answer-display h3 {
+        color: #2c3e50;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+      }
+
+      .answer-text {
+        color: #444;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+
+      .error {
+        background: #fee;
+        border: 1px solid #fcc;
+        color: #c33;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .loading {
+        text-align: center;
+        padding: 40px;
+        color: #666;
+      }
+
+      .examples {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 20px;
+        margin-top: 20px;
+      }
+
+      .examples h4 {
+        color: #2c3e50;
+        margin-bottom: 15px;
+      }
+
+      .examples ul {
+        list-style: none;
+      }
+
+      .examples li {
+        padding: 8px 0;
+        color: #666;
+        border-bottom: 1px solid #eee;
+      }
+
+      .examples li:last-child {
+        border-bottom: none;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          margin: 10px;
+          border-radius: 10px;
+        }
+
+        .header {
+          padding: 20px;
+        }
+
+        .header h1 {
+          font-size: 2em;
+        }
+
+        .main-content {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🔍 Academic Research Assistant</h1>
+        <p>Ask questions about medieval Jewish magic and scholarly research</p>
+      </div>
+
+      <div class="stats">
+        📚 Documents in knowledge base: <span>{{ doc_count }}</span> chunks
+      </div>
+
+      <div class="main-content">
+        <!-- Query Form -->
+        <form method="post" action="/query" class="query-form">
+          <div class="form-group">
+            <label for="question">Ask a question about the research:</label>
+            <textarea
+              name="question"
+              id="question"
+              class="question-input"
+              placeholder="e.g., What is Abraham of Worms known for?"
+              required
+            >
+{{ question if question else '' }}</textarea
+            >
+          </div>
+          <button type="submit" class="submit-btn">🚀 Ask Question</button>
+        </form>
+
+        <!-- Error Display -->
+        {% if error %}
+        <div class="error"><strong>Error:</strong> {{ error }}</div>
+        {% endif %}
+
+        <!-- Results Display -->
+        {% if question and answer %}
+        <div class="result-section">
+          <div class="question-display">
+            <h3>📝 Your Question:</h3>
+            <div class="question-text">{{ question }}</div>
+          </div>
+
+          <div class="answer-display">
+            <h3>🤖 AI Assistant Answer:</h3>
+            <div class="answer-text">{{ answer }}</div>
+          </div>
+        </div>
+        {% endif %}
+
+        <!-- Example Questions -->
+        {% if not question %}
+        <div class="examples">
+          <h4>💡 Example Questions:</h4>
+          <ul>
+            <li>• What is Abraham of Worms?</li>
+            <li>• Tell me about medieval Jewish magic practices</li>
+            <li>
+              • What does Gideon Bohak's research say about Jewish mystical
+              traditions?
+            </li>
+            <li>
+              • What are the main themes in the enchanting rabbis narratives?
+            </li>
+            <li>• How was Jewish magic practiced in the Middle Ages?</li>
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <script>
+      // Auto-focus on the question input
+      document.getElementById("question").focus();
+
+      // Add loading state when form is submitted
+      document.querySelector("form").addEventListener("submit", function () {
+        const submitBtn = document.querySelector(".submit-btn");
+        submitBtn.innerHTML = "⏳ Processing...";
+        submitBtn.disabled = true;
+      });
+    </script>
+  </body>
+</html>

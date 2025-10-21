@@ -1,0 +1,150 @@
+# Development Dependencies for RAG Assistant
+
+# Testing Framework
+pytest==7.4.4
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+pytest-asyncio==0.21.1
+
+# Code Quality and Formatting
+black==23.12.1
+flake8==6.1.0
+isort==5.13.2
+mypy==1.8.0
+pylint==3.0.3
+
+# Pre-commit Hooks
+pre-commit==3.6.0
+
+# Documentation
+sphinx==7.2.6
+sphinx-rtd-theme==2.0.0
+myst-parser==2.0.0
+
+# API Documentation
+fastapi[all]==0.115.9
+httpx==0.28.1  # For testing API endpoints
+
+# Development Tools
+jupyter==1.0.0
+ipython==8.18.1
+notebook==7.0.6
+
+# Performance and Profiling
+memory-profiler==0.61.0
+line-profiler==4.1.1
+py-spy==0.3.14
+
+# Database Tools
+sqlite-utils==3.36.0
+
+# Environment Management
+python-dotenv==1.1.1  # Already in main requirements but useful for dev
+
+# Type Checking Extensions
+types-requests==2.31.0.20240125
+types-PyYAML==6.0.12.12
+
+# Security Scanning
+bandit==1.7.5
+safety==2.3.5
+
+# Dependency Management
+pip-tools==7.3.0
+pipdeptree==2.13.1
+
+# Git Hooks and Workflow
+gitpython==3.1.40
+
+# Load Testing (for API endpoints)
+locust==2.17.0
+
+# Additional Testing Utilities
+factory-boy==3.3.0  # For creating test data
+faker==20.1.0       # For generating fake data
+responses==0.24.1   # For mocking HTTP requests
+
+# Development Server
+uvicorn[standard]==0.35.0  # Development server with auto-reload
+
+# Debugging
+pdb++==0.10.3
+icecream==2.1.3
+
+# Documentation Building
+mkdocs==1.5.3
+mkdocs-material==9.5.2
+
+# Code Coverage Reporting
+coverage==7.3.4
+
+# Linting and Style Checking
+ruff==0.1.8  # Fast Python linter alternative to flake8
+
+# Type Checking for Data Science Libraries
+pandas-stubs==2.1.4.231227
+types-matplotlib==3.8.0.8
+
+# Additional Development Utilities
+rich==14.1.0  # Better terminal output (already in main requirements)
+click==8.2.1  # CLI development (already in main requirements)
+
+# Database Migration Tools (if needed)
+alembic==1.13.1
+
+# Async Testing
+pytest-asyncio==0.21.1
+aioresponses==0.7.4
+
+# Performance Benchmarking
+asv==0.6.1
+
+# API Schema Validation
+jsonschema==4.25.1  # Already in main requirements
+
+# Development Configuration
+python-decouple==3.8
+
+# Code Complexity Analysis
+radon==6.0.1
+xenon==0.9.1
+
+# Documentation Dependencies
+autodoc==0.5.0
+sphinx-autodoc-typehints==1.25.2
+
+# Mock and Testing Utilities
+freezegun==1.2.2  # For mocking datetime
+pytest-xdist==3.5.0  # For parallel test execution
+
+# Development Workflow
+tox==4.11.4  # Multi-environment testing
+
+# Container Development (if using Docker)
+docker-compose==1.29.2
+
+# API Testing
+tavern==2.6.1
+
+# Database Testing
+pytest-postgresql==5.0.0
+pytest-mongodb==2.4.1
+
+# Load Testing for Embeddings
+hypothesis==6.92.1
+
+# ML Model Testing
+scikit-learn==1.7.2  # Already in main requirements for testing ML components
+
+# Version Management
+bump2version==1.0.1
+
+# Security and Vulnerability Scanning
+pip-audit==2.6.1
+
+# Performance Monitoring
+py-spy==0.3.14
+scalene==1.5.26
+
+# Code Metrics
+vulture==2.10  # Find unused code
